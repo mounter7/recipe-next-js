@@ -1,8 +1,7 @@
-import { Navbar } from '../../../components/Navbar'
+import { LoggedNavbar } from '../../../../../components/LoggedNavbar'
 import React from 'react'
 import { MdFavoriteBorder } from "react-icons/md";
 import Image from 'next/image';
-import Link from "next/link";
 
 async function getData(id) {
   const res = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`);
@@ -22,12 +21,12 @@ export default async function page({ params }) {
 
   return (
     <div>
-      <Navbar />
+      <LoggedNavbar />
       <div className='max-w-[900px] mx-auto p-4'>
 
         <div className={'flex flex-col'}>
           <h1 className='dark:text-[#ccc] text-3xl mb-2'>{data?.meals[0]?.strMeal}</h1>
-          <Link href={'/account'}><MdFavoriteBorder className={'dark:text-[#ccc] text-4xl mb-8 cursor-pointer'} /></Link>
+          <MdFavoriteBorder className={'dark:text-[#ccc] text-4xl mb-8 cursor-pointer'} />
         </div>
         <div className={'bg-gray-200 dark:bg-[#333] w-[100%] h-[150px]'}>
           <Image

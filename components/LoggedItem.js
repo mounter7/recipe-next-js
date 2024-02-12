@@ -3,11 +3,11 @@ import { MdFavoriteBorder } from "react-icons/md";
 import Image from 'next/image';
 import Img1 from '../assets/img1.jpg';
 
-export const Item = ({meal}) => {
+export const LoggedItem = ({meal}) => {
   return (
     <div className="max-w-[100%] mb-4">
       <div className="w-[100%] h-[180px] bg-gray-200 dark:bg-[rgb(51,51,51)]">
-        <Link href={`/info/${meal?.idMeal}`}>
+        <Link href={`/account/user/info/${meal?.idMeal}`}>
         <Image 
         src={meal?.strMealThumb} 
         className="w-[100%] h-[100%] object-cover" 
@@ -27,7 +27,7 @@ export const Item = ({meal}) => {
         </div> */}
         </div>
         <div className="text-3xl cursor-pointer dark:text-[#ccc]">
-          <Link href={'/account'}><MdFavoriteBorder /></Link>
+          <MdFavoriteBorder />
         </div>
       </div>
     </div>

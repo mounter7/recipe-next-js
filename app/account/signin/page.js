@@ -30,7 +30,7 @@ export default function pages() {
       const response = await axios.post("/api/users/signin", user);
       console.log("Login success", response.data);
       toast.success("Login success");
-      router.push(`/account/${response.data._id}`);
+      router.push(`/account/user`);
     } catch (error) {
       console.log("Login failed", error.message);
       toast.error(error.message);

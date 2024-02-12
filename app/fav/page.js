@@ -1,5 +1,5 @@
-import { Favitem } from "@/components/Favitem";
-import { Navbar } from "@/components/Navbar";
+import { Favitem } from "../../components/Favitem";
+import { Navbar } from "../../components/Navbar";
 
 const metadata = {
   title: "Fav List",

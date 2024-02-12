@@ -1,11 +1,11 @@
 'use client'
 
 import styles from "./../../page.module.css";
-import { Item } from "../../../components/Item";
 import { MdFavoriteBorder } from "react-icons/md";
 import { useEffect, useState } from "react";
 import { LoggedNavbar } from "../../../components/LoggedNavbar";
 import { Tag } from "../../../components/Tag";
+import { LoggedItem } from "../../../components/LoggedItem";
 
 const metadata = {
   title: "Home",
@@ -154,7 +154,7 @@ export default function Page() {
 
     <>
             {data?.meals?.map((meal) => (
-              <Item key={meal.idMeal} meal={meal} />
+              <LoggedItem key={meal.idMeal} meal={meal} />
             ))}
             </>
     </div>
