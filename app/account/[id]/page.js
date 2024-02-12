@@ -1,11 +1,11 @@
 'use client'
 
-import styles from "./page.module.css";
-import { Navbar } from "../components/Navbar";
-import { Item } from "../components/Item";
+import styles from "./../../page.module.css";
+import { Item } from "../../../components/Item";
 import { MdFavoriteBorder } from "react-icons/md";
 import { useEffect, useState } from "react";
-import { Tag } from "../components/Tag";
+import { LoggedNavbar } from "../../../components/LoggedNavbar";
+import { Tag } from "../../../components/Tag";
 
 const metadata = {
   title: "Home",
@@ -19,13 +19,13 @@ export default function Page() {
   //     const res = await fetch('http://127.0.0.1:3000/api/items', {
   //       cache: 'no-store',
   //     })
-
+  
   //     if (!res.ok) {
   //       throw new Error('Failed to fetch items.')
   //     }
-
+  
   //     return res.json()
-
+  
   //   } catch (error) {
   //     console.log('Error loading items.', error)
   //   }
@@ -35,7 +35,7 @@ export default function Page() {
 
   const [name, setName] = useState('');
   const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(false)
+  const[loading,setLoading] = useState(false)
   const [search, setSearch] = useState('')
   const [category, setCategory] = useState('chicken')
 
@@ -47,7 +47,7 @@ export default function Page() {
     }
     const data = await res.json()
     setData(data)
-
+    
   }
 
   const onSearch1 = async (e) => {
@@ -58,7 +58,7 @@ export default function Page() {
     }
     const data = await res.json()
     setData(data)
-
+    
   }
 
   const onSearch2 = async (e) => {
@@ -69,7 +69,7 @@ export default function Page() {
     }
     const data = await res.json()
     setData(data)
-
+    
   }
 
   const onSearch3 = async (e) => {
@@ -80,7 +80,7 @@ export default function Page() {
     }
     const data = await res.json()
     setData(data)
-
+    
   }
 
   const onSearch4 = async (e) => {
@@ -91,9 +91,9 @@ export default function Page() {
     }
     const data = await res.json()
     setData(data)
-
+    
   }
-
+  
   const onSearch5 = async (e) => {
     const res = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=pasta`)
     console.log(res)
@@ -102,9 +102,9 @@ export default function Page() {
     }
     const data = await res.json()
     setData(data)
-
+    
   }
-
+  
   const onSearch6 = async (e) => {
     const res = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=seafood`)
     console.log(res)
@@ -113,7 +113,7 @@ export default function Page() {
     }
     const data = await res.json()
     setData(data)
-
+    
   }
 
   useEffect(() => {
@@ -137,7 +137,7 @@ export default function Page() {
   }, [name]);
 
   return (<>
-    <Navbar />
+    <LoggedNavbar />
     <div className="bg-white dark:bg-black max-w-[1400px] mx-auto sticky top-[50px]">
       <div className="flex gap-2 px-4 py-2 mb-2 overflow-x-auto no-scrollbar">
         <div onClick={onSearch}><Tag tagCat={'All'} /></div>
@@ -152,14 +152,13 @@ export default function Page() {
 
     <div className="bg-white dark:bg-black px-4 mx-auto max-w-[1400px] gap-4 grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 desktop:grid-cols-4">
 
-      <>
-        {data?.meals?.map((meal) => (
-          <Item key={meal.idMeal} meal={meal} />
-        ))}
-      </>
+    <>
+            {data?.meals?.map((meal) => (
+              <Item key={meal.idMeal} meal={meal} />
+            ))}
+            </>
     </div>
 
 
   </>
-  )
-}
+)}

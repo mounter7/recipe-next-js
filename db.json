@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "fav": false,
+        "img": "/assets/img1.jpg",
+        "title": "Title er erwer werwerwr werwerw",
+        "ingredients": "rrt. rtert. ertert. ertet. erte. ertet.",
+        "preparation": "ewrwe wrewrew ewew ewrerrewrew  ererer er ererterte e e tete et ete eyrtyryrte er ettytryetewrtrt y ytryrtyeterwr eterterrwerertertety rtertetyt yet ye trttytrye e eytyryee etyteryey"
+    },
+    {
+        "id": 2,
+        "fav": false,
+        "img": "/assets/img2.jpg",
+        "title": "Second er erwer werwerwr werwerw",
+        "ingredients": "koththa malli. rtert. ertert. ertet. erte. ertet.",
+        "preparation": "kapanwa. wrewrew ewew ewrerrewrew  ererer er ererterte e e tete et ete eyrtyryrte er ettytryetewrtrt y ytryrtyeterwr eterterrwerertertety rtertetyt yet ye trttytrye e eytyryee etyteryey"
+    },
+    {
+        "id": 3,
+        "fav": false,
+        "img": "/assets/img1.jpg",
+        "title": "Third er erwer werwerwr werwerw",
+        "ingredients": "Gammiris. rtert. ertert. ertet. erte. ertet.",
+        "preparation": "Hodanaw. wrewrew ewew ewrerrewrew  ererer er ererterte e e tete et ete eyrtyryrte er ettytryetewrtrt y ytryrtyeterwr eterterrwerertertety rtertetyt yet ye trttytrye e eytyryee etyteryey"
+    },
+    {
+        "id": 4,
+        "fav": false,
+        "img": "/assets/img1.jpg",
+        "title": "Title er erwer werwerwr werwerw",
+        "ingredients": "rrt. rtert. ertert. ertet. erte. ertet.",
+        "preparation": "ewrwe wrewrew ewew ewrerrewrew  ererer er ererterte e e tete et ete eyrtyryrte er ettytryetewrtrt y ytryrtyeterwr eterterrwerertertety rtertetyt yet ye trttytrye e eytyryee etyteryey"
+    }
+]
