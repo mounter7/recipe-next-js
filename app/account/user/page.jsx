@@ -6,6 +6,10 @@ import { useEffect, useState } from "react";
 import { LoggedNavbar } from "../../../components/LoggedNavbar";
 import { Tag } from "../../../components/Tag";
 import { LoggedItem } from "../../../components/LoggedItem";
+import axios from "axios";
+import Link from "next/link";
+import {toast} from "react-hot-toast";
+import {useRouter} from "next/navigation";
 
 const metadata = {
   title: "Home",
@@ -14,30 +18,28 @@ const metadata = {
 
 export default function Page() {
 
-  // const getItems = async () => {
-  //   try {
-  //     const res = await fetch('http://127.0.0.1:3000/api/items', {
-  //       cache: 'no-store',
-  //     })
-  
-  //     if (!res.ok) {
-  //       throw new Error('Failed to fetch items.')
-  //     }
-  
-  //     return res.json()
-  
-  //   } catch (error) {
-  //     console.log('Error loading items.', error)
-  //   }
-  // }
-  // const items = getItems()
-  // console.log(items)
-
   const [name, setName] = useState('');
   const [data, setData] = useState(null);
   const[loading,setLoading] = useState(false)
   const [search, setSearch] = useState('')
   const [category, setCategory] = useState('chicken')
+  const router = useRouter()
+    const [loggedData, setLoggedData] = useState("nothing")
+    
+    const getUserDetails = async () => {
+      const res = await axios.get('/api/users/user')
+      console.log(res.user);
+      setLoggedData(res.user.data._id)
+    }
+
+    useEffect(() => {
+      const res = axios.get('/api/users/user')
+      console.log(res.user);
+      //setLoggedData(res.user.data._id)
+
+      loggedData !== 'nothing' ? router.push(`/account/signin`) : router.push(`/account/user`)
+    }, [])
+    
 
   const onSearch = async (e) => {
     const res = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`)
@@ -138,6 +140,8 @@ export default function Page() {
 
   return (<>
     <LoggedNavbar />
+    <div className={'dark:text-[#ccc]'}>{loggedData === 'nothing' ? "Nothing" : <Link href={`/account/user`}>{loggedData}
+            </Link>}</div>
     <div className="bg-white dark:bg-black max-w-[1400px] mx-auto sticky top-[50px]">
       <div className="flex gap-2 px-4 py-2 mb-2 overflow-x-auto no-scrollbar">
         <div onClick={onSearch}><Tag tagCat={'All'} /></div>
