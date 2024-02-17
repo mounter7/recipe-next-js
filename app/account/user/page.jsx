@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import styles from "./../../page.module.css";
 import { MdFavoriteBorder } from "react-icons/md";
@@ -8,8 +8,8 @@ import { Tag } from "../../../components/Tag";
 import { LoggedItem } from "../../../components/LoggedItem";
 import axios from "axios";
 import Link from "next/link";
-import {toast} from "react-hot-toast";
-import {useRouter} from "next/navigation";
+import { toast } from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const metadata = {
   title: "Home",
@@ -17,152 +17,179 @@ const metadata = {
 };
 
 export default function Page() {
-
-  const [name, setName] = useState('');
+  const [name, setName] = useState("");
   const [data, setData] = useState(null);
-  const[loading,setLoading] = useState(false)
-  const [search, setSearch] = useState('')
-  const [category, setCategory] = useState('chicken')
-  const router = useRouter()
-    const [loggedData, setLoggedData] = useState("")
-    
-    const getUserDetails = async () => {
-      const res = await axios.get('/api/users/user')
-      console.log(res.user);
-      setLoggedData(res.user.data._id)
-    }
+  const [loading, setLoading] = useState(false);
+  const [search, setSearch] = useState("");
+  const [category, setCategory] = useState("chicken");
+  const router = useRouter();
+  const [loggedData, setLoggedData] = useState("");
 
-    useEffect(() => {
-      const res = axios.get('/api/users/user')
-      console.log(res.user);
-      //setLoggedData(res.user.data._id)
+  const getUserDetails = async () => {
+    const res = await axios.get("/api/users/user");
+    console.log(res.user);
+    setLoggedData('logged');
+  };
+  
+  useEffect(() => {
+    setLoggedData('');
+    axios.get("/api/users/user");
+    //setLoggedData(res.user.data._id)
 
-      loggedData !== '' ? router.push(`/account/signin`) : router.push(`/account/user`)
-    }, [])
-    
+    loggedData === "logged"
+      ? router.push(`/account/signin`)
+      : router.push(`/account/user`);
+  }, []);
 
   const onSearch = async (e) => {
-    const res = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`)
-    console.log(res)
+    const res = await fetch(
+      `https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`
+    );
+    console.log(res);
     if (!res.ok) {
       return;
     }
-    const data = await res.json()
-    setData(data)
-    
-  }
+    const data = await res.json();
+    setData(data);
+  };
 
   const onSearch1 = async (e) => {
-    const res = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=chicken`)
-    console.log(res)
+    const res = await fetch(
+      `https://www.themealdb.com/api/json/v1/1/search.php?s=chicken`
+    );
+    console.log(res);
     if (!res.ok) {
       return;
     }
-    const data = await res.json()
-    setData(data)
-    
-  }
+    const data = await res.json();
+    setData(data);
+  };
 
   const onSearch2 = async (e) => {
-    const res = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=vegan`)
-    console.log(res)
+    const res = await fetch(
+      `https://www.themealdb.com/api/json/v1/1/search.php?s=vegan`
+    );
+    console.log(res);
     if (!res.ok) {
       return;
     }
-    const data = await res.json()
-    setData(data)
-    
-  }
+    const data = await res.json();
+    setData(data);
+  };
 
   const onSearch3 = async (e) => {
-    const res = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=lamb`)
-    console.log(res)
+    const res = await fetch(
+      `https://www.themealdb.com/api/json/v1/1/search.php?s=lamb`
+    );
+    console.log(res);
     if (!res.ok) {
       return;
     }
-    const data = await res.json()
-    setData(data)
-    
-  }
+    const data = await res.json();
+    setData(data);
+  };
 
   const onSearch4 = async (e) => {
-    const res = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=pork`)
-    console.log(res)
+    const res = await fetch(
+      `https://www.themealdb.com/api/json/v1/1/search.php?s=pork`
+    );
+    console.log(res);
     if (!res.ok) {
       return;
     }
-    const data = await res.json()
-    setData(data)
-    
-  }
-  
+    const data = await res.json();
+    setData(data);
+  };
+
   const onSearch5 = async (e) => {
-    const res = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=pasta`)
-    console.log(res)
+    const res = await fetch(
+      `https://www.themealdb.com/api/json/v1/1/search.php?s=pasta`
+    );
+    console.log(res);
     if (!res.ok) {
       return;
     }
-    const data = await res.json()
-    setData(data)
-    
-  }
-  
+    const data = await res.json();
+    setData(data);
+  };
+
   const onSearch6 = async (e) => {
-    const res = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=seafood`)
-    console.log(res)
+    const res = await fetch(
+      `https://www.themealdb.com/api/json/v1/1/search.php?s=seafood`
+    );
+    console.log(res);
     if (!res.ok) {
       return;
     }
-    const data = await res.json()
-    setData(data)
-    
-  }
+    const data = await res.json();
+    setData(data);
+  };
 
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
     const fetchData = async () => {
       try {
-        const res = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${name}`);
-        console.log(res)
+        const res = await fetch(
+          `https://www.themealdb.com/api/json/v1/1/filter.php?i=${name}`
+        );
+        console.log(res);
         if (!res.ok) {
-          throw new Error('Failed to fetch data');
+          throw new Error("Failed to fetch data");
         }
         const result = await res.json();
         setData(result);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
       }
-      setLoading(false)
+      setLoading(false);
     };
 
     fetchData();
   }, [name]);
 
-  return (<>
-    <LoggedNavbar />
-    <div className={'dark:text-[#ccc]'}>{loggedData === 'nothing' ? "Nothing" : <Link href={`/account/user`}>{loggedData}
-            </Link>}</div>
-    <div className="bg-white dark:bg-black max-w-[1400px] mx-auto sticky top-[50px]">
-      <div className="flex gap-2 px-4 py-2 mb-2 overflow-x-auto no-scrollbar">
-        <div onClick={onSearch}><Tag tagCat={'All'} /></div>
-        <div onClick={onSearch1}><Tag tagCat={'Chicken'} /></div>
-        <div onClick={onSearch2}><Tag tagCat={'Vegan'} /></div>
-        <div onClick={onSearch3}><Tag tagCat={'Lamb'} /></div>
-        <div onClick={onSearch4}><Tag tagCat={'Pork'} /></div>
-        <div onClick={onSearch5}><Tag tagCat={'Pasta'} /></div>
-        <div onClick={onSearch6}><Tag tagCat={'Seafood'} /></div>
-      </div>
-    </div>
-
-    <div className="bg-white dark:bg-black px-4 mx-auto max-w-[1400px] gap-4 grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 desktop:grid-cols-4">
-
+  return (
     <>
-            {data?.meals?.map((meal) => (
-              <LoggedItem key={meal.idMeal} meal={meal} />
-            ))}
-            </>
-    </div>
+      <LoggedNavbar />
+      <div className={"dark:text-[#ccc]"}>
+        {loggedData === "nothing" ? (
+          "Nothing"
+        ) : (
+          <Link href={`/account/user`}>{loggedData}</Link>
+        )}
+      </div>
+      <div className="bg-white dark:bg-black max-w-[1400px] mx-auto sticky top-[50px]">
+        <div className="flex gap-2 px-4 py-2 mb-2 overflow-x-auto no-scrollbar">
+          <div onClick={onSearch}>
+            <Tag tagCat={"All"} />
+          </div>
+          <div onClick={onSearch1}>
+            <Tag tagCat={"Chicken"} />
+          </div>
+          <div onClick={onSearch2}>
+            <Tag tagCat={"Vegan"} />
+          </div>
+          <div onClick={onSearch3}>
+            <Tag tagCat={"Lamb"} />
+          </div>
+          <div onClick={onSearch4}>
+            <Tag tagCat={"Pork"} />
+          </div>
+          <div onClick={onSearch5}>
+            <Tag tagCat={"Pasta"} />
+          </div>
+          <div onClick={onSearch6}>
+            <Tag tagCat={"Seafood"} />
+          </div>
+        </div>
+      </div>
 
-
-  </>
-)}
+      <div className="bg-white dark:bg-black px-4 mx-auto max-w-[1400px] gap-4 grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 desktop:grid-cols-4">
+        <>
+          {data?.meals?.map((meal) => (
+            <LoggedItem key={meal.idMeal} meal={meal} />
+          ))}
+        </>
+      </div>
+    </>
+  );
+}
