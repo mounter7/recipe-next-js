@@ -1,5 +1,5 @@
-import { Favitem } from "../../components/Favitem";
-import { Navbar } from "../../components/Navbar";
+import { Favitem } from "../../../../components/Favitem";
+import { LoggedNavbar } from "../../../../components/LoggedNavbar";
 
 const metadata = {
   title: "Fav List",
@@ -9,7 +9,7 @@ const metadata = {
 const Fav = () => {
   return (
     <div>
-      <Navbar />
+      <LoggedNavbar />
       <div className="px-4">
         <h3 className="dark:text-[#ccc] text-center font-semibold mb-4">My Favorites</h3>
         <Favitem />

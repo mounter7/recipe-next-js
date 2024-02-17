@@ -32,7 +32,7 @@ export const LoggedNavbar = () => {
       </div>
       <div className={'flex gap-2 items-center'}>
       <Link className="text-xl  bg-gray-300 dark:bg-[#333] dark:text-[#ccc] p-2 rounded-full text-black" href={'/search'}><FiSearch /></Link>
-      <Link className="text-xl bg-gray-300 dark:bg-[#333] dark:text-[#ccc] p-2 rounded-full text-black" href={'/fav'}><MdFavoriteBorder /></Link>
+      <Link className="text-xl bg-gray-300 dark:bg-[#333] dark:text-[#ccc] p-2 rounded-full text-black" href={'/account/user/fav'}><MdFavoriteBorder /></Link>
       <IoMdPower onClick={logout} className="cursor-pointer text-4xl  bg-gray-300 dark:bg-[#333] dark:text-[#ccc] p-2 rounded-full text-black" />
       </div>
     </div>

@@ -24,7 +24,7 @@ export default function Page() {
   const [search, setSearch] = useState('')
   const [category, setCategory] = useState('chicken')
   const router = useRouter()
-    const [loggedData, setLoggedData] = useState("nothing")
+    const [loggedData, setLoggedData] = useState("")
     
     const getUserDetails = async () => {
       const res = await axios.get('/api/users/user')
@@ -37,7 +37,7 @@ export default function Page() {
       console.log(res.user);
       //setLoggedData(res.user.data._id)
 
-      loggedData !== 'nothing' ? router.push(`/account/signin`) : router.push(`/account/user`)
+      loggedData !== '' ? router.push(`/account/signin`) : router.push(`/account/user`)
     }, [])
     
 
