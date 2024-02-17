@@ -15,7 +15,7 @@ export const Favitem = () => {
         placeholder="blur"
         />
         </div>
-        <h3 className="max-w-[300px] mr-2 dark:text-[#ccc]">Caramal puddin with papaya ewrew wetrwt</h3>
+        <h3 className="max-w-[300px] mr-2 dark:text-[#ccc]">Beef Banh Mi Bowls with Sriracha Mayo, Carrot & Pickled Cucumber</h3>
         </div>
         <IoMdRemoveCircle 
         className="cursor-pointer text-3xl dark:text-[#666]" 
