@@ -2,7 +2,7 @@ import connectMongoDB from '../../lib/config'
 import { UserModel } from "../../models/userModel"
 import { NextResponse } from "next/server"
 
-export async function GET() {
+export async function GET(req) {
     await connectMongoDB()
     const users = await UserModel.find()
     return NextResponse.json({ users })
